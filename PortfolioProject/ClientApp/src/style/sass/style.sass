@@ -72,7 +72,7 @@
                 right: 0
                 bottom: 0
                 left: 0
-                border: 15px solid #cecaca4a
+                border: 15px solid grey
         .big
             grid-column-end: span 2
             grid-row-end: span 2
@@ -83,3 +83,117 @@
             img
                 min-width: 100%
                 height: 100%
+
+body 
+  margin: 0
+  height: 100%
+  overflow: hidden
+  width: 100% 
+  font-family: Montserrat
+  box-sizing: border-box
+
+.backside
+    width: 100%
+    height: 100%
+    position: absolute
+    &__canvas
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    &__right
+        right: 0
+        opacity: 0
+    &__left
+        left: 0
+    &__right,
+    &__left
+        display: flex
+        flex-direction: column
+        justify-content: center
+        position: absolute
+        width: 50%
+        height: 100%
+        background: #2C3034
+        color: white
+        h2,
+        form
+            margin-left: 60px
+        h2 
+            margin-bottom: 50px
+            font-size: 60px
+        .signup-form,
+        .login-form
+            &__username,
+            &__password
+                display: flex
+                flex-direction: column
+                text-transform: uppercase
+                font-size: 12px
+                margin: 20px 0px
+                input
+                    border: none
+                    border-bottom: 1px solid white
+                    background: none
+                    width: 50%
+                    margin: 20px 0px
+                    &:focus
+                        outline: none
+            &__button
+                margin: 20px 0px
+                .signup-button,
+                .login-button
+                    margin-right: 30px
+                    background: dodgerblue
+                    border: none
+                    padding: 10px 30px
+                    color: white
+                    font-weight: bold
+.frontside
+    width: 100%
+    height: 100%
+    position: absolute
+    &__right
+        right: 0
+    &__left
+        left: 0
+    &__right,
+    &__left
+        display: flex
+        flex-direction: column
+        justify-content: center
+        position: absolute
+        width: 50%
+        height: 100%
+        color: #2C3034
+        h1
+            font-size: 100px
+            font-weight: bold
+            margin: 20px 0px 20px 60px
+        p
+            margin: 20px 0px 20px 60px
+            text-transform: uppercase
+            font-weight: 500
+            span
+                color: dodgerblue
+                font-weight: bold
+        .signup-button
+            margin: 20px 0px
+            margin-left: 60px
+            background: dodgerblue
+            border: none
+            padding: 10px 30px
+            color: white
+            font-weight: bold
+            width: 200px
+.slide-login 
+    width: 50%
+    max-height: 100%
+    height: 100%
+    overflow: hidden
+    margin-left: 50%
+    position: absolute
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+    z-index: -1
+ 
