@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import ".././style/css/style.css";
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.addActiveClass = this.addActiveClass.bind(this);
+    this.state = {
+      active: false
+    };
+  }
+  addActiveClass() {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+  }
   render() {
     return (
       <div className="login-page">
@@ -46,11 +57,38 @@ class Login extends Component {
                 <button className="signup-button" type="submit" name="signup">
                   Sign up
                 </button>
-                <button className="login-button">Log In</button>
               </div>
             </form>
           </div>
           <div className="backside__left">
+            <h1>
+              Already
+              <br /> have account?
+            </h1>
+            <p>
+              Sign in
+              <br />
+              to check your favourite images
+            </p>
+            <button
+              className="signup-button"
+              type="submit"
+              name="signup"
+              onClick={this.addActiveClass}
+            >
+              Log in
+            </button>
+          </div>
+        </div>
+
+        <div className="frontside">
+          <div
+            className={
+              this.state.active
+                ? "frontside__left"
+                : "frontside__left  showElement"
+            }
+          >
             <h2>Login</h2>
             <form className="login-form" method="post" onsubmit="return false;">
               <div class="login-form__username">
@@ -74,18 +112,25 @@ class Login extends Component {
               </div>
             </form>
           </div>
-        </div>
-
-        <div className="frontside">
-          <div className="frontside__left" />
-          <div className="frontside__right">
+          <div
+            className={
+              this.state.active
+                ? "frontside__right hideElement"
+                : "frontside__right"
+            }
+          >
             <h1>Dont have account?</h1>
             <p>
               Register
               <br />
               It is and always will be <span>for free</span>
             </p>
-            <button className="signup-button" type="submit" name="signup">
+            <button
+              className="signup-button"
+              type="submit"
+              name="signup"
+              onClick={this.addActiveClass}
+            >
               Sign Up
             </button>
           </div>
