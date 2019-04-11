@@ -1,0 +1,116 @@
+@import 'variables'
+
+body 
+    height: 100%
+    overflow: hidden
+    width: 100% 
+    font-family: Montserrat
+
+.backside,
+.frontside
+    width: 100%
+    height: 100%
+    position: absolute
+    &__form,
+    &__text
+        display: flex
+        flex-direction: column 
+        justify-content: center
+        position: absolute
+        width: 50%
+        height: 100%
+        .form-header,
+        .signup-form,
+        .login-form
+            margin-left: 60px
+        .form-header
+            margin-bottom: 50px
+            font-size: 60px
+        h1
+            font-size: 100px
+            font-weight: bold
+            margin: 20px 0px 20px 60px
+            width: 50vw
+        p
+            margin: 20px 0px 20px 60px
+            text-transform: uppercase
+            font-weight: 500
+            width: 50vw
+            span
+                color: $button-color
+                font-weight: bold
+        .signup-button,
+        .login-button
+            margin-left: 60px
+            background: $button-color
+            border: none
+            width: 200px
+            padding: 10px 30px
+            color: white
+            font-weight: bold
+        .signup-form,
+        .login-form
+            width: 50vw
+            &__username,
+            &__password
+                display: flex
+                flex-direction: column
+                text-transform: uppercase
+                font-size: 12px
+                margin: 20px 0px
+                input
+                    border: none
+                    border-bottom: 1px solid white
+                    background: none
+                    width: 50%
+                    margin: 20px 0px
+                    &:focus
+                        outline: none
+            &__button
+                margin: 20px 0px
+                background: $button-color
+                border: none
+                padding: 10px 30px
+                color: white
+                font-weight: bold
+                width: 200px
+.backside
+    &__form,
+    &__text
+        background: $background-color
+        color: white
+        .form-header,
+        form
+            z-index: 9999
+    &__form
+        right: 0
+    &__text
+        left: 0
+        z-index: 999
+        background: white
+        color: $background-color
+.frontside
+    &__text,
+    &__form
+        color: $background-color
+        background: white
+        overflow: hidden
+        transition-duration: 1s
+    &__text
+        left: 50%
+        z-index: 10000
+        &--hidden
+            width: 0px
+            right: 50%
+            transition-duration: 1s
+    &__form
+        left: 0px
+        width: 0
+        z-index: 10000
+        background: $background-color
+        color: white
+        &--shown
+            width: 50%
+            left: 0px
+            transition-duration: 1s
+ 
