@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ".././style/css/style.css";
+import ".././style/css/login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -17,20 +18,20 @@ class Login extends Component {
     return (
       <div className="login-page">
         <div className="backside">
-          <div className="backside__right">
-            <h2>Sign Up</h2>
+          <div className="backside__form">
+            <h2 className="form-header">Sign Up</h2>
             <form
               className="signup-form"
               method="post"
               onsubmit="return false;"
             >
               <div class="signup-form__username">
-                <label for="username-signup" class="username-label">
+                <label for="username-signup" className="username-label">
                   Username
                 </label>
                 <input className="username-input" type="text" name="username" />
               </div>
-              <div class="signup-form__password">
+              <div className="signup-form__password">
                 <label for="password-signup" class="password-label">
                   Password
                 </label>
@@ -46,21 +47,23 @@ class Login extends Component {
                   type="checkbox"
                   name="confirm"
                   value="yes"
-                  class="checkbox"
+                  className="checkbox"
                 />
                 <label for="confirm-terms">
                   I agree to the <a href="#">Terms of Service</a> and{" "}
                   <a href="#">Privacy Policy</a>
                 </label>
               </div>
-              <div class="signup-form__button">
-                <button className="signup-button" type="submit" name="signup">
-                  Sign up
-                </button>
-              </div>
+              <button
+                className="signup-form__button"
+                type="submit"
+                name="signup"
+              >
+                Sign up
+              </button>
             </form>
           </div>
-          <div className="backside__left">
+          <div className="backside__text">
             <h1>
               Already
               <br /> have account?
@@ -85,12 +88,12 @@ class Login extends Component {
           <div
             className={
               this.state.active
-                ? "frontside__left"
-                : "frontside__left  showElement"
+                ? "frontside__form"
+                : "frontside__form  frontside__form--shown"
             }
           >
-            <h2>Login</h2>
-            <form className="login-form" method="post" onsubmit="return false;">
+            <h2 className="form-header">Login</h2>
+            <form className="login-form" method="post" onSubmit="return false;">
               <div class="login-form__username">
                 <label for="username-login" class="username-label">
                   Username
@@ -107,16 +110,14 @@ class Login extends Component {
                   name="password"
                 />
               </div>
-              <div class="login-form__button">
-                <button className="login-button">Log In</button>
-              </div>
+              <button className="login-form__button">Log In</button>
             </form>
           </div>
           <div
             className={
               this.state.active
-                ? "frontside__right hideElement"
-                : "frontside__right"
+                ? "frontside__text frontside__text--hidden"
+                : "frontside__text"
             }
           >
             <h1>Dont have account?</h1>
