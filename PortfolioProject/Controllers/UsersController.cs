@@ -13,7 +13,7 @@ using System.Text;
 
 namespace PortfolioProject.Controllers
 {
-    [Authorize, ApiController, Route("[controller]")]
+    [Authorize, ApiController, Route("api/[controller]")]
     public class UsersController : Controller
     {
         private IUserService userService;
@@ -25,7 +25,7 @@ namespace PortfolioProject.Controllers
             this.appSettings = appSettings.Value;
         }
 
-        [AllowAnonymous, HttpPost("authenticate")]
+        [AllowAnonymous, HttpPost("[action]")]
         public IActionResult Authenticate([FromBody]UserDto userDto)
         {
             var user = userService.Authenticate(userDto.Login, userDto.Password);
@@ -56,7 +56,7 @@ namespace PortfolioProject.Controllers
             });
         }
 
-        [AllowAnonymous, HttpPost("register")]
+        [AllowAnonymous, HttpPost("[action]")]
         public IActionResult Register([FromBody]UserDto userDto)
         {
             // map dto to entity
@@ -76,7 +76,7 @@ namespace PortfolioProject.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("[action]/{id:int}")]
         public IActionResult GetById(int id)
         {
             var user = userService.GetById(id);
@@ -86,7 +86,7 @@ namespace PortfolioProject.Controllers
             return Ok(userDto);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("[action]/{id:int}")]
         public IActionResult Delete(int id)
         {
             userService.Delete(id);

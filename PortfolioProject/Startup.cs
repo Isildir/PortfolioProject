@@ -104,12 +104,7 @@ namespace PortfolioProject
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
+            app.UseMvc(routes => { routes.MapRoute("ActionRoute", "api/{controller}/{action}/{id}"); });
 
             app.UseSpa(spa =>
             {
